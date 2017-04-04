@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {getTracks} from './actions/tracks';
 
 class App extends Component {
 
@@ -16,7 +17,9 @@ class App extends Component {
 	}
 
 	render () {
-		console.log ( this.props.tracks );
+		//console.log ( this.props.tracks );
+
+		//console.log ( this.props.playlists );
 		return (
 			<div>
 				<div>
@@ -33,6 +36,9 @@ class App extends Component {
 					}}/>
 					<button onClick={this.findTrack.bind ( this )}>Find track</button>
 				</div>
+				<div>
+					<button onClick={this.props.onGetTracks}>Get tracks</button>
+				</div>
 				<ul>
 					{this.props.tracks.map ( ( track, index ) =>
 						<li key={index}>{track.name}</li>
@@ -45,7 +51,8 @@ class App extends Component {
 
 export default connect (
 	state => ({
-		tracks : state.tracks.filter ( track => track.name.includes ( state.filterTracks ) )
+		tracks : state.tracks.filter ( track => track.name.includes ( state.filterTracks ) ),
+		playlists: state.playlists
 	}),
 	dispatch => ({
 		// эти методы добавляют в хранилище редакс данные которые мы им передаи
@@ -59,6 +66,9 @@ export default connect (
 		onFindTrack : ( name ) => {
 			console.log ( 'name', name );
 			dispatch ( { type : 'FIND_TRACK', payload : name } );
+		},
+		onGetTracks: ()=>{
+			dispatch(getTracks());
 		}
 	})
 ) ( App );
