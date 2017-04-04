@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class App extends Component {
+
+	// эти два метода работают чтобы что то сделать с данными, например чтобы передать их в хранилище redux
 	addTrack () {
 		console.log ( 'addTrack', this.trackInput.value );
 		this.props.onAddTrack ( this.trackInput.value );
@@ -24,7 +26,9 @@ class App extends Component {
 					<button onClick={this.addTrack.bind ( this )}>Add track</button>
 				</div>
 				<div>
-					<input type="text" ref={( input ) => {
+					<input
+						onChange={this.findTrack.bind ( this )}
+						type="text" ref={( input ) => {
 						this.searchInput = input
 					}}/>
 					<button onClick={this.findTrack.bind ( this )}>Find track</button>
@@ -44,6 +48,7 @@ export default connect (
 		tracks : state.tracks.filter ( track => track.name.includes ( state.filterTracks ) )
 	}),
 	dispatch => ({
+		// эти методы добавляют в хранилище редакс данные которые мы им передаи
 		onAddTrack : ( name ) => {
 			const payload = {
 				id : Date.now ().toString (),
