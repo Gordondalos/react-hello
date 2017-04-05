@@ -13,6 +13,11 @@ class Menu extends Component {
 					</li>
 					<li className="nav-item">
 						<span className="nav-link">
+							<Link to="/homef">HomeF</Link>
+						</span>
+					</li>
+					<li className="nav-item">
+						<span className="nav-link">
 							<Link to="/about">About</Link>
 						</span>
 					</li>

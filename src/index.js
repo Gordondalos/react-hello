@@ -17,6 +17,7 @@ import About from './About';
 import Dropdown from './Dropdown';
 import Registration from './Registration';
 import Home from './Home';
+import HomeF from './HomeF';
 
 const history = createHistory();
 
@@ -34,6 +35,7 @@ ReactDom.render (
 			<div className="container">
 				<Route path="/" component={App} />
 				<Route path="/home" component={Home} />
+				<Route path="/homef" component={HomeF} />
 				<Route path="/about" component={About} />
 				<Route path="/dropdown" component={Dropdown} />
 				<Route path="/registration" component={Registration} />
