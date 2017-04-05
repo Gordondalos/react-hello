@@ -8,8 +8,9 @@ class App extends Component {
 
 	render () {
 		return (
-			<div>
+			<div >
 				<Menu/>
+				<div className="clearfix mb-4"></div>
 			</div>
 		);
 	}

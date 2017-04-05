@@ -4,12 +4,14 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import App from './App';
 import './index.css';
+import '../public/css/main.css'
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import { Route } from 'react-router';
 import { ConnectedRouter} from 'react-router-redux'
 import createHistory from 'history/createBrowserHistory';
 import reducer from './reducers';
+
 
 import About from './About';
 import Dropdown from './Dropdown';
@@ -29,7 +31,7 @@ history.push('/home');
 ReactDom.render (
 	<Provider store={store}>
 		<ConnectedRouter history={history}>
-			<div>
+			<div className="container">
 				<Route path="/" component={App} />
 				<Route path="/home" component={Home} />
 				<Route path="/about" component={About} />

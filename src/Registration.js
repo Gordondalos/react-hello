@@ -5,8 +5,9 @@ class Registration extends Component {
 	render () {
 		return (
 			<form onSubmit={this.handleSubmit}>
-				<input placeholder="email" value={this.state.email} onChange={this.handleChange} type="text"/>
-				<button>Save</button>
+				<input className="form-control" placeholder="email" value={this.state.email} onChange={this.handleChange} type="text"/>
+				<div className="clearfix mb-3"></div>
+				<button className="btn btn-success float-right">Save</button>
 			</form>
 		)
 

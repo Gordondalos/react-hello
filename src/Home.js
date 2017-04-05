@@ -9,22 +9,31 @@ class Home extends Component {
 		return (
 			<div>
 				<div>
-					<input type="text" ref={( input ) => {
-						this.trackInput = input
-					}}/>
-					<button onClick={this.addTrack.bind ( this )}>Add track</button>
+					<button className="btn btn-success float-right" onClick={this.props.onGetTracks}>Get tracks</button>
+					<div className="clearfix mb-3"></div>
 				</div>
 				<div>
 					<input
+						className="form-control"
+						type="text" ref={( input ) => {
+						this.trackInput = input
+					}}/>
+					<div className="clearfix mb-3"></div>
+					<button className="btn btn-success float-right" onClick={this.addTrack.bind ( this )}>Add track</button>
+				</div>
+				<div className="clearfix mb-3"></div>
+				<div>
+					<input
+						className="form-control"
 						onChange={this.findTrack.bind ( this )}
 						type="text" ref={( input ) => {
 						this.searchInput = input
 					}}/>
-					<button onClick={this.findTrack.bind ( this )}>Find track</button>
+					<div className="clearfix mb-3"></div>
+					<button className="btn btn-success float-right" onClick={this.findTrack.bind ( this )}>Find track</button>
 				</div>
-				<div>
-					<button onClick={this.props.onGetTracks}>Get tracks</button>
-				</div>
+
+
 				<ul>
 					{this.props.tracks.map ( ( track, index ) =>
 						<li key={index}>{track.name}</li>
